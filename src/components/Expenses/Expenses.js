@@ -8,10 +8,9 @@ import Card from '../UI/Card';
 function Expenses(propData) {
     const [filterDate, setFilterDate] = useState("2019");
 
-    const [filteredExpenses, setFilteredExpenses] = useState(propData.expenses.filter(element => { return element.date.getFullYear().toString() === filterDate }));
+    const filteredExpenses = propData.expenses.filter(element => { return element.date.getFullYear().toString() === filterDate });
     const filterChangeHandler = (selectedDate) => {
         setFilterDate(selectedDate);
-        setFilteredExpenses(() => {return propData.expenses.filter(element => { return element.date.getFullYear().toString() === filterDate })});
     };
 
     return (
